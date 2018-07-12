@@ -130,7 +130,6 @@ var cos = {
             path = "/";
         path += d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
         path += '/' + Math.random().toString(36).substr(2) + '.';
-        // path += '/' + d.getTime() + '.';
         path += ext || 'jpg';
 
         return path;

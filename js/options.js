@@ -1,8 +1,8 @@
 $(function(){
-    $('#myTabs a').click(function (e) {
+    /*$('#myTabs a').click(function (e) {
         e.preventDefault()
         $(this).tab('show');
-    });
+    });*/
 
     var defaultData = {
         SecretId: '',
@@ -12,7 +12,6 @@ $(function(){
     };
 
     chrome.storage.sync.get(defaultData, function(items) {
-        console.log (items);
         for (var i in items) {
             document.getElementById(i).value = items[i];
         }
