@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>上传图片</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-        #wrap{width: 300px;height:auto;padding: 15px;}
-        #showImage{position: absolute; top: 0;left: 0;}
-        #showImage img{width: 100px;height: auto;}
-        #imageList{padding-top: 15px;display: none;}
-        #imageList li{width: 50px;height: 50px;overflow: hidden;}
-        #imageList li a{display: block;}
-        #imageList li img{width: 50px;height: auto;}
-    </style>
-    <script type="text/javascript" src="./js/cos-js-sdk-v5.min.js"></script>
-    <script type="text/javascript" src="./js/image.js"></script>
+<meta charset="utf-8">
+<title>上传图片</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+a {cursor: pointer;}
+#wrap{width: 400px;height:auto;padding: 15px;}
+#showImage{position: absolute; top: 0;right: 0;display: none;}
+#showImage img{max-height: 145px;width: auto;}
+#imageList{padding-top: 15px;display: none;max-height: 300px;overflow: auto;}
+#imageList li{width: 50px;height: 50px;overflow: hidden;}
+#imageList li a{display: block;}
+#imageList li img{width: 50px;height: auto;}
+#clipboardInput{margin:20px 0;}
+</style>
+<script type="text/javascript" src="js/cos-js-sdk-v5.min.js"></script>
+<script type="text/javascript" src="js/image.js"></script>
 </head>
 <body>
 <textarea style="display: block;position: absolute;top: -300px;" id="hidden"></textarea>
 <div id="wrap">
     <div id="pic">
         <button type="button" id="btn" class="btn btn-success">上传图片</button>
-        <a href="javascript:;" id="clean" class="btn btn-link">清除历史</a>
-        <span class="text-danger" id="tips" style="display: none;position: absolute;top: 20px;right: 30px;">复制成功</span>
+        <a href="#" id="clean" class="btn btn-link">清除历史</a>
+        <span class="text-danger" id="tips" style="display: none;position: absolute;top: 5px;left: 115px;">复制成功</span>
         <p class="help-block">点击图片复制内容</p>
         <input type="file" name="" id="file" style="display: none;">
+        <input type="text" name="clipboardInput" id="clipboardInput" class="form-control" placeholder="粘帖图片">
     </div>
-
     <ul id="imageList" class="list-inline">
 
     </ul>
+</div>
+
+<div id="showImage">
+    <img src="">
 </div>
 
 </body>
