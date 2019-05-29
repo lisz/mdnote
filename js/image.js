@@ -16,12 +16,13 @@ var image = {
         ID('btn').addEventListener('click', function () {
             that.start();
         });
+
         // 上传图片
         file.addEventListener('change', function (e) {
             var file = e.target.files[0],
                 name = cos.getRandomName(this.value);
 
-            cos.send(name, file);
+            cloud.upload(name, file);
         });
 
         // 绑定图片点击事件
@@ -56,7 +57,7 @@ var image = {
                 for (var i = 0; i < items.length; i++) {
                     if (items[i].type.indexOf('image') !== -1) {
                         file = items[i].getAsFile();
-                        cos.send(cos.getRandomName(file.name), file);
+                        cloud.upload(cos.getRandomName(file.name), file);
                         break;
                     }
                 }
@@ -130,6 +131,19 @@ var image = {
     }
 };
 
+var cloud = {
+    upload: function (name, file) {
+        var type = 'cos';
+        switch (type) {
+            case 'cos':
+                cos.send(name, file);
+                break;
+            default:
+                break;
+        }
+    }
+};
+
 var cos = {
     // 上传图片到腾讯云
     send: function (name, file) {
@@ -139,6 +153,7 @@ var cos = {
             Bucket: '',
             Region: ''
         };
+        loading();
         chrome.storage.sync.get(config, function (items) {
             var cos = new COS({
                 SecretId: items.SecretId,
@@ -159,6 +174,7 @@ var cos = {
                 } else if(data.Location!='') {
                     image.insert(data.Location);
                 }
+                loading(true);
             });
         });
     },
@@ -177,6 +193,11 @@ var cos = {
 
 function ID (id) {
     return document.getElementById(id);
+}
+
+function loading (close) {
+    var close = close || false;
+    ID('showLoading').style.display = close ? 'none': 'block';
 }
 
 setTimeout(function () {
