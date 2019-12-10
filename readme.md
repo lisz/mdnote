@@ -6,7 +6,8 @@
 - 图片上传完成后自动加入剪贴板
 - 点击图片复制 `markdown` 格式图片
 - 需要配置[腾讯云存储参数](https://console.cloud.tencent.com/cos)
-![image](https://note-1251721932.cos.ap-shanghai.myqcloud.com/2019-5-8/s7eofkfk4hj.png)
+
+![image](http://img.s1.lisz.vip/2019-5-8/s7eofkfk4hj.png)
 
 | 来源 Origin | 操作 Methods | Allow-Headers | Expose-Headers | 超时 Max-Age |
 |-- | -- | -- | -- | -- |
@@ -14,6 +15,6 @@
 
 - 示例图片
 
-![image](https://note-1251721932.cos.ap-shanghai.myqcloud.com/2019-5-28/go0hk9pka7u.png)
-![image](https://note-1251721932.cos.ap-shanghai.myqcloud.com/2018-7-12/4fgtltq2xeg.png)
+![image](http://img.s1.lisz.vip/2019-5-28/go0hk9pka7u.png)
+![image](http://img.s1.lisz.vip/2018-7-12/4fgtltq2xeg.png)
 
